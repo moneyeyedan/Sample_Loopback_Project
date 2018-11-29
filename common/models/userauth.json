@@ -1,0 +1,42 @@
+{
+  "name": "userauth",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "email": {
+      "type": "string",
+      "required": true,
+      "index": {
+        "unique": true
+      }
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userdetails": {
+      "type": "hasOne",
+      "model": "userdetail",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "storedbs": {
+      "type": "hasOne",
+      "model": "storedb",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
